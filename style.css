@@ -1,0 +1,611 @@
+/* 기본 스타일 */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* 헤더 */
+header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+    position: sticky; /* 페이지 이동 시에도 헤더 고정 */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #222;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+}
+
+header nav a.active {
+    border-bottom: 2px solid #222;
+}
+
+header nav a:hover {
+    color: #555;
+}
+
+/* 페이지 헤더 */
+#page-header {
+    background: linear-gradient(135deg, #f9f9f9, #e0e0e0, #f9f9f9);
+    background-size: 200% 200%;
+    animation: gradient-animation 15s ease infinite;
+    text-align: center;
+    padding: 4rem 0;
+    overflow: hidden; /* 텍스트 애니메이션을 위한 설정 */
+}
+
+#page-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #222;
+    font-weight: 700;
+    opacity: 1; /* 기본적으로 보이도록 설정 */
+    transform: translateY(0); /* 기본 위치 */
+}
+
+#page-header p {
+    font-size: 1.2rem;
+    color: #555;
+    opacity: 1; /* 기본적으로 보이도록 설정 */
+    transform: translateY(0); /* 기본 위치 */
+}
+
+/* 새로운 애니메이션 정의 */
+@keyframes fade-in-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* page-header 텍스트에 애니메이션 적용 */
+#page-header.animated h2 {
+    animation: fade-in-scale 1s ease-out forwards;
+}
+
+#page-header.animated p {
+    animation: slide-in-left 1s ease-out 0.3s forwards;
+}
+
+/* 메인 섹션 */
+main {
+    padding-top: 20px; /* 헤더가 sticky이므로 패딩 조정 */
+}
+
+main section {
+    padding: 6rem 0;
+    border-bottom: 1px solid #eee;
+    overflow: hidden; /* 애니메이션을 위한 설정 */
+}
+
+main section:last-child {
+    border-bottom: none;
+}
+
+main h3 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+main h3 i {
+    margin-right: 15px;
+}
+
+#hero {
+    position: relative; /* 파티클 배경을 위한 설정 */
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 8rem 0;
+    overflow: hidden;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+#hero h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #222;
+    font-weight: 700;
+}
+
+#hero p {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+}
+
+.animate-title {
+    animation: slide-up 1s ease-out forwards;
+}
+
+.animate-subtitle {
+    animation: slide-up 1s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.animate-button {
+    animation: slide-up 1s ease-out 1s forwards;
+    opacity: 0;
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-button {
+    background-color: #222;
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #222;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.cta-button:hover {
+    background-color: #fff;
+    color: #222;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* 회사 소개 */
+#about {
+    background-color: #222;
+    color: #fff;
+}
+
+#about h3 {
+    color: #fff;
+}
+
+.vision-text {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+}
+
+.achievements {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.achievement-item i {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.achievement-item h4 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    font-weight: 700;
+}
+
+/* 타임라인 */
+#history h3 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #222;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    opacity: 0; /* 애니메이션 시작 상태 */
+    transform: translateX(-100px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.visible {
+    opacity: 1; /* 애니메이션 끝 상태 */
+    transform: translateX(0);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    transform: translateX(100px); /* 오른쪽에서 등장 */
+}
+
+.timeline-item.visible:nth-child(even) {
+    transform: translateX(0);
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #222;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -16px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* 팀 카드 & 채용 카드 */
+.team-cards, .job-postings {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Changed from nowrap */
+}
+
+.card, .job-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 2.5rem;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 1rem; /* 카드 사이의 간격 조정 */
+    text-align: center;
+}
+
+.card:hover, .job-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem; /* 아이콘 크기 조정 */
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.card h4, .job-card h4 {
+    color: #222;
+    font-size: 1.5rem; /* 제목 글꼴 크기 조정 */
+    margin-bottom: 0.8rem;
+}
+
+.card p, .job-card p {
+    font-size: 0.9rem; /* 설명 글꼴 크기 조정 */
+    color: #555;
+}
+
+.animate-card {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slide-up 1s ease-out forwards;
+}
+
+.animate-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.animate-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* 팀 페이지 카드 애니메이션 */
+.animate-team-card {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slide-up-fade-in 0.8s ease-out forwards;
+}
+
+.animate-team-card:nth-child(1) { animation-delay: 0.1s; }
+.animate-team-card:nth-child(2) { animation-delay: 0.3s; }
+.animate-team-card:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes slide-up-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 채용 페이지 카드 애니메이션 (팀 페이지와 동일하게 변경) */
+.animate-job-card {
+    opacity: 0;
+    transform: translateY(50px); /* Changed to match slide-up-fade-in start */
+    animation: slide-up-fade-in 0.8s ease-out forwards; /* Changed animation */
+}
+
+.animate-job-card:nth-child(1) { animation-delay: 0.1s; }
+.animate-job-card:nth-child(2) { animation-delay: 0.3s; }
+.animate-job-card:nth-child(3) { animation-delay: 0.5s; }
+
+/* 채용 버튼 */
+.apply-button {
+    background-color: #222;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid #222;
+    margin-top: 1rem; /* 버튼 위쪽 여백 추가 */
+}
+
+.apply-button:hover {
+    background-color: #fff;
+    color: #222;
+}
+
+/* 모달 스타일 */
+.modal-overlay {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-overlay.modal-open {
+    display: flex; /* modal-open 클래스가 추가되면 보임 */
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 90%;
+    position: relative;
+    animation: modal-fade-in 0.5s ease-out;
+}
+
+@keyframes modal-fade-in {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0);
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.modal-content h3 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #555;
+}
+
+/* 푸터 */
+footer {
+    background: #222;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+footer ul {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ccc;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(odd), .timeline-item:nth-child(even) {
+        left: 0;
+        transform: translateX(-100px); /* 모바일에서도 동일한 시작 위치 */
+    }
+
+    .timeline-item.visible:nth-child(odd), .timeline-item.visible:nth-child(even) {
+        transform: translateX(0);
+    }
+
+    .timeline-item::after {
+        left: 15px;
+    }
+
+    /* 카드 반응형 */
+    .team-cards, .job-postings {
+        flex-direction: column; /* 세로로 정렬 */
+        align-items: center; /* 중앙 정렬 */
+    }
+
+    .card, .job-card {
+        width: 90%; /* 모바일에서 카드 너비 조정 */
+        margin: 1rem auto; /* 상하 여백 추가 및 중앙 정렬 */
+    }
+}
